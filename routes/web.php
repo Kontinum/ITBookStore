@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('shop.index');
 });
+
+Route::get('/signup',[
+    'uses' => 'UserController@getSignUp',
+    'as'  => 'getSignUp'
+]);
