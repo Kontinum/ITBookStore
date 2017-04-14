@@ -3,6 +3,11 @@ body{
     font-size: 16px;
 }
 
+p{
+    font-size: 120%;
+    letter-spacing: 0.2px;
+}
+
 @font-face {
     font-family: brandFont;
     src: url(../fonts/Qraxy.ttf);
