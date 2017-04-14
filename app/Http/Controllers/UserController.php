@@ -41,6 +41,20 @@ class UserController extends Controller
         return view('user.signIn');
     }
 
+
+    public function postSignIn(Request $request)
+    {
+        $this->validate($request,[
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
+
+        if(Auth::attempt(['email' => $request->input('email'),'password' => $request->input('password')])){
+            return redirect('/');
+        }
+        return back()->with('error','Username or password incorrect');
+    }
+
     public function logout()
     {
         Auth::logout();
