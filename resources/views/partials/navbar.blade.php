@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#" style="color: cornflowerblue">ITBookStore</a>
+            <a class="navbar-brand" href="/" style="color: cornflowerblue">ITBookStore</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
