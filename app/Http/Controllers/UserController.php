@@ -41,7 +41,6 @@ class UserController extends Controller
         return view('user.signIn');
     }
 
-
     public function postSignIn(Request $request)
     {
         $this->validate($request,[
