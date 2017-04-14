@@ -22,7 +22,14 @@ class UserController extends Controller
             'email'    => 'email|unique:users',
         ]);
 
-        $user = new User($request->all());
+        $user = new User([
+            'username' => $request->input('username'),
+            'name'     => $request->input('name'),
+            'password' => bcrypt($request->input('password')),
+            'email'    => $request->input('email'),
+            'address'  => $request->input('address'),
+            'phone'    => $request->input('phone')
+        ]);
         $user->save();
         Auth::login($user,true);
 
