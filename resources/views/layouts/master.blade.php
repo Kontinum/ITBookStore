@@ -18,6 +18,7 @@
 <body>
     @include('partials.navbar')
     <div class="container">
+        @include('errors.info-box')
         @yield('content')
     </div>
     <!-- jQuery CDN -->
