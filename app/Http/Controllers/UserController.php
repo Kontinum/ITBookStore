@@ -33,7 +33,7 @@ class UserController extends Controller
         $user->save();
         Auth::login($user,true);
 
-        return redirect('/');
+        return redirect()->route('getIndex');
     }
 
     public function getSignIn()
@@ -50,7 +50,7 @@ class UserController extends Controller
         ]);
 
         if(Auth::attempt(['email' => $request->input('email'),'password' => $request->input('password')])){
-            return redirect('/');
+            return redirect()->route('getIndex');
         }
         return back()->with('error','Username or password incorrect');
     }
@@ -59,6 +59,6 @@ class UserController extends Controller
     {
         Auth::logout();
 
-        return redirect('/');
+        return redirect()->route('getIndex');
     }
 }
