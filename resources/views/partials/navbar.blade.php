@@ -55,7 +55,7 @@
                             <li><a href="{{route('logout')}}">
                                     <i class="fa fa-sign-out icon" aria-hidden="true"></i> Logout</a></li>
                         @else
-                            <li><a href="#">
+                            <li><a href="{{route('getSignIn')}}">
                                     <i class="fa fa-sign-in icon" aria-hidden="true"></i> Login
                                 </a></li>
                             <li><a href="{{route('getSignUp')}}">
