@@ -58,7 +58,7 @@
                             <li><a href="#">
                                     <i class="fa fa-sign-in icon" aria-hidden="true"></i> Login
                                 </a></li>
-                            <li><a href="#">
+                            <li><a href="{{route('getSignUp')}}">
                                     <i class="fa fa-user-plus icon" aria-hidden="true"></i> Register
                                 </a></li>
                         @endif
