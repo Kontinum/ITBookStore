@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('shop.index');
-});
+Route::get('/',[
+    'uses' => 'ShopController@getIndex',
+    'as'   => 'getIndex'
+]);
 
 Route::group(['prefix' => 'user'],function(){
     Route::group(['middleware' => 'guest'],function(){
