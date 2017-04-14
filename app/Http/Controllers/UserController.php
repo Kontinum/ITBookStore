@@ -29,6 +29,11 @@ class UserController extends Controller
         return redirect('/');
     }
 
+    public function getSignIn()
+    {
+        return view('user.signIn');
+    }
+
     public function logout()
     {
         Auth::logout();
