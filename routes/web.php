@@ -30,6 +30,11 @@ Route::get('/signin',[
     'as'  => 'getSignIn'
 ]);
 
+Route::post('/signin',[
+    'uses' => 'UserController@postSignIn',
+    'as'   => 'postSignIn'
+]);
+
 Route::get('/logout',[
     'uses' => 'UserController@logout',
     'as'   => 'logout'
