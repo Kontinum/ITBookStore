@@ -24,3 +24,8 @@ Route::post('/signup',[
     'uses' => 'UserController@postSignUp',
     'as'   => 'postSignUp'
 ]);
+
+Route::get('/logout',[
+    'uses' => 'UserController@logout',
+    'as'   => 'logout'
+]);
