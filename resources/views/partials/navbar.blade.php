@@ -52,7 +52,7 @@
                         @if(Auth::check())
                             <li><a href="#">Something else here</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="#">
+                            <li><a href="{{route('logout')}}">
                                     <i class="fa fa-sign-out icon" aria-hidden="true"></i> Logout</a></li>
                         @else
                             <li><a href="#">
