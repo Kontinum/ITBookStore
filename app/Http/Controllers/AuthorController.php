@@ -44,6 +44,13 @@ class AuthorController extends Controller
         return view('admin.authorsResult',['authors' => $authors, 'authorName' => $authorName]);
     }
 
+    public function getEditAuthor($authorId)
+    {
+        $author = Author::find($authorId);
+
+        return view('admin.editAuthor',['author' => $author]);
+    }
+
     public function deleteAuthor($authorId)
     {
         $author = Author::find($authorId);
