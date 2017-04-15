@@ -12,6 +12,11 @@ p{
     color: red;
 }
 
+.search-count{
+    color: cornflowerblue;
+    font-weight: bold;
+}
+
 @font-face {
     font-family: brandFont;
     src: url(../fonts/Qraxy.ttf);
