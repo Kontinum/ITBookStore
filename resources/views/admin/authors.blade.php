@@ -7,7 +7,7 @@
 @section('content')
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
-            <p>Authors: <i>{{count($authors)}}</i></p>
+            <p>Authors: <i class="search-count">{{count($authors)}}</i></p>
             <hr>
             <div class="panel panel-primary">
                 <div class="panel-heading">
