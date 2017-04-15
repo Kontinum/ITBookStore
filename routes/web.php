@@ -31,6 +31,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
         'uses' => 'AuthorController@searchAuthors',
         'as'   => 'searchAuthors'
     ]);
+
+    Route::get('/delete-author/{authorId}',[
+        'uses' => 'AuthorController@deleteAuthor',
+        'as'   => 'deleteAuthor'
+    ]);
 });
 
 Route::group(['prefix' => 'user'],function(){
