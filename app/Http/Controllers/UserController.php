@@ -31,6 +31,7 @@ class UserController extends Controller
             'phone'    => $request->input('phone')
         ]);
         $user->save();
+        $user->roles()->attach(2);
         Auth::login($user,true);
 
         return redirect()->route('getIndex');
