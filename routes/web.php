@@ -26,6 +26,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
         'uses' => 'AuthorController@addAuthor',
         'as'   => 'addAuthor'
     ]);
+
+    Route::get('/search-authors',[
+        'uses' => 'AuthorController@searchAuthors',
+        'as'   => 'searchAuthors'
+    ]);
 });
 
 Route::group(['prefix' => 'user'],function(){
