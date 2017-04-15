@@ -20,7 +20,7 @@
                             <input type="text" name="author-name" value="{{old('author-name')}}" class="form-control" placeholder="Author name" required>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn bg-primary pull-right">Add author</button>
+                            <button type="submit" class="btn btn-primary pull-right">Add author</button>
                         </div>
                     </form>
                 </div>
