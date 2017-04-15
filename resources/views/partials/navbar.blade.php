@@ -62,7 +62,7 @@
                                         <a href="#"><i class="fa fa-list-ul icon" aria-hidden="true"></i> Categories</a>
                                     </li>
                                     <li>
-                                        <a href="#"><i class="fa fa-user-circle icon" aria-hidden="true"></i> Authors</a>
+                                        <a href="{{route('authors')}}"><i class="fa fa-user-circle icon" aria-hidden="true"></i> Authors</a>
                                     </li>
                                     <li>
                                         <a href="#"><i class="fa fa-users icon" aria-hidden="true"></i> Users</a>
