@@ -41,6 +41,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
         'uses' => 'AuthorController@getEditAuthor',
         'as'   => 'getEditAuthor'
     ]);
+
+    Route::post('/edit-author/{authorId}',[
+        'uses' => 'AuthorController@postEditAuthor',
+        'as'   => 'postEditAuthor'
+    ]);
 });
 
 Route::group(['prefix' => 'user'],function(){
