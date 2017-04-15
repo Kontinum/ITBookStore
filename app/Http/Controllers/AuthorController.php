@@ -27,4 +27,20 @@ class AuthorController extends Controller
 
         return redirect()->route('authors')->with('success','Author '.$request->input('author-name').' has been successfully added');
     }
+
+    public function searchAuthors(Request $request)
+    {
+        $this->validate($request,[
+            'author-name' => 'required'
+        ]);
+
+        $authorName = $request->input('author-name');
+        $authors = Author::where('name','LIKE','%'.$authorName.'%')->get();
+
+        if($authors->isEmpty()){
+            return back()->with('error','There is no author with that name');
+        }
+
+        return view('admin.authorsResult',['authors' => $authors, 'authorName' => $authorName]);
+    }
 }
