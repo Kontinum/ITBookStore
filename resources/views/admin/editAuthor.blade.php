@@ -12,7 +12,7 @@
             <div class="panel panel-success">
                 <div class="panel-heading">Edit author</div>
                 <div class="panel-body">
-                    <form action="{{route('postEditAuthor',['authorId' => $author->id])}}" method="get">
+                    <form action="{{route('postEditAuthor',['authorId' => $author->id])}}" method="post">
                         <div class="form-group">
                             <input type="text" name="author-name" value="{{$author->name}}" class="form-control" required>
                         </div>
