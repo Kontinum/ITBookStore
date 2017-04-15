@@ -19,6 +19,11 @@
                     <input type="password" id="password" name="password" value="{{old('password')}}" class="form-control" required>
                 </div>
                 <div class="form-group">
+                    <label for="remember_me">
+                        <input type="checkbox" id="remember_me" name="remember_me"> Remember me
+                    </label>
+                </div>
+                <div class="form-group">
                     <button type="submit" class="btn btn-primary pull-right">Login</button>
                 </div>
             </form>
