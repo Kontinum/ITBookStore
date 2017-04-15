@@ -50,7 +50,33 @@
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         @if(Auth::check())
-                            <li><a href="#">Something else here</a></li>
+                            <li>
+                                <a href="#"><i class="fa fa-user icon" aria-hidden="true"></i> Profile</a>
+                            </li>
+                            @foreach(auth()->user()->roles as $role)
+                                @if($role->name == 'admin')
+                                    <li>
+                                        <a href="#"><i class="fa fa-book icon" aria-hidden="true"></i> Books</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-list-ul icon" aria-hidden="true"></i> Categories</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-user-circle icon" aria-hidden="true"></i> Authors</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-users icon" aria-hidden="true"></i> Users</a>
+                                    </li>
+                                    <li role="separator" class="divider"></li>
+                                    <li>
+                                        <a href=""><i class="fa fa-list-ol icon" aria-hidden="true"></i> Orders</a>
+                                    </li>
+                                @else
+                                    <li>
+                                        <a href=""><i class="fa fa-list-ol icon" aria-hidden="true"></i> Your Orders</a>
+                                    </li>
+                                @endif
+                            @endforeach
                             <li role="separator" class="divider"></li>
                             <li><a href="{{route('logout')}}">
                                     <i class="fa fa-sign-out icon" aria-hidden="true"></i> Logout</a></li>
