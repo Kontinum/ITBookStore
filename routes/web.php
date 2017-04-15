@@ -16,6 +16,13 @@ Route::get('/',[
     'as'   => 'getIndex'
 ]);
 
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
+    Route::get('/authors',[
+        'uses' => 'AuthorController@authors',
+        'as'   => 'authors'
+    ]);
+});
+
 Route::group(['prefix' => 'user'],function(){
     Route::group(['middleware' => 'guest'],function(){
         Route::get('/signup',[
