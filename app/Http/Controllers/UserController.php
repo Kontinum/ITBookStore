@@ -48,7 +48,9 @@ class UserController extends Controller
             'password' => 'required'
         ]);
 
-        if(Auth::attempt(['email' => $request->input('email'),'password' => $request->input('password')])){
+        $remember_me = ($request->input('remember_me') === 'on') ? true : false;
+
+        if(Auth::attempt(['email' => $request->input('email'),'password' => $request->input('password')],$remember_me)){
             return redirect()->route('getIndex');
         }
         return back()->with('error','Username or password incorrect');
