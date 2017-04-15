@@ -17,6 +17,10 @@ p{
     font-weight: bold;
 }
 
+.list-icon{
+    margin-left: 5px;
+}
+
 @font-face {
     font-family: brandFont;
     src: url(../fonts/Qraxy.ttf);
