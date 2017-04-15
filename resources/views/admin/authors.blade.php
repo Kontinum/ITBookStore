@@ -26,6 +26,8 @@
                 </div>
             </div>
             @include('partials.searchAuthorsForm')
+            <hr>
         </div>
+        @include('partials.authorsList')
     </div>
 @endsection
