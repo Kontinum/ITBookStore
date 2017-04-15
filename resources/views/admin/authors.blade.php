@@ -16,6 +16,7 @@
                 <div class="panel-body">
                     <div class="panel-body">
                         <form action="{{route('addAuthor')}}" method="post">
+                            {{csrf_field()}}
                             <div class="form-group">
                                 <input type="text" name="author-name" value="{{old('author-name')}}" class="form-control" placeholder="Author name" required>
                             </div>
