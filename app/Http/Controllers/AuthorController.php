@@ -43,4 +43,13 @@ class AuthorController extends Controller
 
         return view('admin.authorsResult',['authors' => $authors, 'authorName' => $authorName]);
     }
+
+    public function deleteAuthor($authorId)
+    {
+        $author = Author::find($authorId);
+        $name = $author->name;
+        $author->delete();
+
+        return redirect()->route('authors')->with('success','Author '.$name.' has been successfully deleted');
+    }
 }
