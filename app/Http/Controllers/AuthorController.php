@@ -51,6 +51,18 @@ class AuthorController extends Controller
         return view('admin.editAuthor',['author' => $author]);
     }
 
+    public function postEditAuthor($authorId, Request $request)
+    {
+        $this->validate($request,[
+            'author-name' => 'required'
+        ]);
+        $author = Author::find($authorId);
+        $author->name = $request->input('author-name');
+        $author->save();
+
+        return back()->with('success','Author name has been successfully edited');
+    }
+
     public function deleteAuthor($authorId)
     {
         $author = Author::find($authorId);
