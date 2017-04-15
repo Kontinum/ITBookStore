@@ -39,6 +39,11 @@ Route::group(['prefix' => 'user'],function(){
         ]);
     });
     Route::group(['middleware' => 'auth'],function(){
+            Route::get('/profile',[
+                'uses' => 'UserController@getProfile',
+                'as'   => 'getProfile'
+            ]);
+
         Route::get('/logout',[
             'uses' => 'UserController@logout',
             'as'   => 'logout'
