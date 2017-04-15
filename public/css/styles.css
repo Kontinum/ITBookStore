@@ -8,6 +8,10 @@ p{
     letter-spacing: 0.2px;
 }
 
+.required{
+    color: red;
+}
+
 @font-face {
     font-family: brandFont;
     src: url(../fonts/Qraxy.ttf);
