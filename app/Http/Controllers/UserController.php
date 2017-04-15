@@ -57,6 +57,11 @@ class UserController extends Controller
         return back()->with('error','Username or password incorrect');
     }
 
+    public function getProfile()
+    {
+        return view('user.profile');
+    }
+
     public function logout()
     {
         Auth::logout();
