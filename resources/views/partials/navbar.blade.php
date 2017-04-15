@@ -51,7 +51,7 @@
                     <ul class="dropdown-menu">
                         @if(Auth::check())
                             <li>
-                                <a href="#"><i class="fa fa-user icon" aria-hidden="true"></i> Profile</a>
+                                <a href="{{route('getProfile')}}"><i class="fa fa-user icon" aria-hidden="true"></i> Profile</a>
                             </li>
                             @foreach(auth()->user()->roles as $role)
                                 @if($role->name == 'admin')
