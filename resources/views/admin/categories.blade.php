@@ -41,6 +41,9 @@
                                 @foreach($category->subcategories as $subcategory)
                                     <li class="list-group-item">
                                         {{$subcategory->name}}
+                                        <a href="{{route('deleteSubcategory',['subcategoryId' => $subcategory->id])}}" title="Delete subcategory" class="pull-right">
+                                            <i class="fa fa-trash icon" aria-hidden="true"></i>
+                                        </a>
                                     </li>
                                 @endforeach
                                     <li class="list-group-item clearfix">
