@@ -59,7 +59,7 @@
                                         <a href="#"><i class="fa fa-book icon" aria-hidden="true"></i> Books</a>
                                     </li>
                                     <li>
-                                        <a href="#"><i class="fa fa-list-ul icon" aria-hidden="true"></i> Categories</a>
+                                        <a href="{{route('categories')}}"><i class="fa fa-list-ul icon" aria-hidden="true"></i> Categories</a>
                                     </li>
                                     <li>
                                         <a href="{{route('authors')}}"><i class="fa fa-user-circle icon" aria-hidden="true"></i> Authors</a>
