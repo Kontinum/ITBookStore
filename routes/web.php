@@ -57,6 +57,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
         'as'   => 'addCategory'
     ]);
 
+    Route::get('/delete-category/{categoryId}',[
+        'uses' => 'CategoryController@deleteCategory',
+        'as'   => 'deleteCategory'
+    ]);
+
     Route::post('/add-subcategory/{categoryId}',[
         'uses' => 'CategoryController@addSubcategory',
         'as'   => 'addSubcategory'
