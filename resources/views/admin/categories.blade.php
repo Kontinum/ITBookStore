@@ -30,6 +30,21 @@
                             </form>
                         </div>
                     </div>
+                    <hr>
+                    <ul class="list-group">
+                        @foreach($categories as $category)
+                            <li class="list-group-item list-group-item-success">
+                                {{$category->name}}
+                            </li>
+                            <ul class="list-group">
+                                @foreach($category->subcategories as $subcategory)
+                                    <li class="list-group-item">
+                                        {{$subcategory->name}}
+                                    </li>
+                                @endforeach
+                            </ul>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
         </div>
