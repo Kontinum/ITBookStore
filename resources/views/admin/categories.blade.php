@@ -20,6 +20,7 @@
                         </div>
                         <div class="panel-body">
                             <form action="{{route('addCategory')}}" method="post">
+                                {{csrf_field()}}
                                 <div class="form-group">
                                     <input type="text" name="category-name" value="{{old('category-name')}}" class="form-control" placeholder="Category name" required>
                                 </div>
