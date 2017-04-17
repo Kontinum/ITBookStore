@@ -35,11 +35,12 @@
                         @foreach($categories as $category)
                             <li class="list-group-item list-group-item-success">
                                 &nbsp;{{$category->name}}
+                                <i style="cursor: pointer;margin-top: 3px;margin-left: 5px" class="subcategory-toggle fa fa-sort icon pull-right" aria-hidden="true"></i>
                                 <a href="{{route('deleteCategory',['categoryId' => $category->id])}}" title="Delete category" class="pull-right">
                                     <i class="fa fa-trash icon" aria-hidden="true"></i>
                                 </a>
                             </li>
-                            <ul class="list-group">
+                            <ul class="subcategory-list list-group">
                                 @foreach($category->subcategories as $subcategory)
                                     <li class="list-group-item">
                                         {{$subcategory->name}}
