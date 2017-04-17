@@ -29,6 +29,15 @@ class CategoryController extends Controller
         return back()->with('success','Category '.$categoryName.' has been successfully added');
     }
 
+    public function deleteCategory($categoryId)
+    {
+        $category = Category::find($categoryId);
+        $categoryName = $category->name;
+        $category->delete();
+
+        return back()->with('success','Category '.$categoryName.' has been successfully deleted');
+    }
+
     public function addSubcategory($categoryId, Request $request)
     {
         $this->validate($request,[
