@@ -43,6 +43,17 @@
                                         {{$subcategory->name}}
                                     </li>
                                 @endforeach
+                                    <li class="list-group-item clearfix">
+                                        <form action="{{route('addSubcategory',['categoryId' => $category->id])}}" method="post">
+                                            {{csrf_field()}}
+                                            <div class="form-group">
+                                                <input type="text" name="subcategory-name" value="{{old('subcategory-name')}}" class="form-control" placeholder="Subcategory name" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-success pull-right">Add subcategory</button>
+                                            </div>
+                                        </form>
+                                    </li>
                             </ul>
                         @endforeach
                     </ul>
