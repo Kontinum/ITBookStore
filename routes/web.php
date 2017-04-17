@@ -46,6 +46,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
         'uses' => 'AuthorController@postEditAuthor',
         'as'   => 'postEditAuthor'
     ]);
+
+    Route::get('/categories',[
+        'uses' => 'CategoryController@categories',
+        'as'   => 'categories'
+    ]);
 });
 
 Route::group(['prefix' => 'user'],function(){
