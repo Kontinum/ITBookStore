@@ -56,6 +56,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
         'uses' => 'CategoryController@addcategory',
         'as'   => 'addCategory'
     ]);
+
+    Route::post('/add-subcategory/{categoryId}',[
+        'uses' => 'CategoryController@addSubcategory',
+        'as'   => 'addSubcategory'
+    ]);
 });
 
 Route::group(['prefix' => 'user'],function(){
