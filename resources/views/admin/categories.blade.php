@@ -34,8 +34,10 @@
                     <ul class="list-group">
                         @foreach($categories as $category)
                             <li class="list-group-item list-group-item-success">
-                                {{$category->name}}
-                                <span class="badge">{{count($category->subcategories)}}</span>
+                                &nbsp;{{$category->name}}
+                                <a href="{{route('deleteCategory',['categoryId' => $category->id])}}" title="Delete category" class="pull-right">
+                                    <i class="fa fa-trash icon" aria-hidden="true"></i>
+                                </a>
                             </li>
                             <ul class="list-group">
                                 @foreach($category->subcategories as $subcategory)
