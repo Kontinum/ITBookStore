@@ -61,6 +61,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
         'uses' => 'CategoryController@addSubcategory',
         'as'   => 'addSubcategory'
     ]);
+
+    Route::get('/delete-subcategory/{subcategoryId}',[
+        'uses' => 'CategoryController@deleteSubcategory',
+        'as'   => 'deleteSubcategory'
+    ]);
 });
 
 Route::group(['prefix' => 'user'],function(){
