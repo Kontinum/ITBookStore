@@ -35,6 +35,7 @@
                         @foreach($categories as $category)
                             <li class="list-group-item list-group-item-success">
                                 {{$category->name}}
+                                <span class="badge">{{count($category->subcategories)}}</span>
                             </li>
                             <ul class="list-group">
                                 @foreach($category->subcategories as $subcategory)
