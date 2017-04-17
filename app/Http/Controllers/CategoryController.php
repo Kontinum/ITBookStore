@@ -43,6 +43,14 @@ class CategoryController extends Controller
         $subcategory->save();
 
         return back()->with('success','Subcategory '.$subcategoryName.' has been successfully added');
+    }
 
+    public function deleteSubcategory($subcategoryId)
+    {
+        $subcategory = Subcategory::find($subcategoryId);
+        $subcategoryName = $subcategory->name;
+        $subcategory->delete();
+
+        return back()->with('success','Subcategory '.$subcategoryName.' has been successfully deleted');
     }
 }
