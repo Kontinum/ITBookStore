@@ -81,6 +81,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
         'uses' => 'UserController@addUser',
         'as'   => 'addUser'
     ]);
+
+    Route::get('/delete-user/{userId}',[
+        'uses' => 'UserController@deleteUser',
+        'as'   => 'deleteUser'
+    ]);
 });
 
 Route::group(['prefix' => 'user'],function(){
