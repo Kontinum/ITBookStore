@@ -28,10 +28,10 @@
                             <textarea name="book-description" rows="5" class="form-control" placeholder="Book description"></textarea>
                         </div>
                         <div class="form-group">
-                            <select name="books-categories[]" multiple class="form-control"></select>
+                            <select name="book-categories[]" multiple class="form-control books-categories"></select>
                         </div>
                         <div class="form-group">
-                            <select name="books-authors[]" multiple class="form-control"></select>
+                            <select name="book-authors[]" multiple class="form-control books-authors"></select>
                         </div>
                         <div class="form-group">
                             <input type="text" name="book-price" value="{{old('book-price')}}" placeholder="Book price" class="form-control" required>
