@@ -19,7 +19,7 @@
                     Add new book
                 </div>
                 <div class="panel-body">
-                    <form action="" method="post">
+                    <form action="{{route('addBook')}}" method="post">
                         <div class="form-group">
                             <input type="text" name="book-isbn" value="{{old('book-isbn')}}" placeholder="Book ISBN" class="form-control" required>
                         </div>
