@@ -8,6 +8,13 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+    //Admin routes
+    public function users()
+    {
+        $users = User::orderBy('username','ASC')->get();
+
+        return view('admin.users',['users' => $users]);
+    }
     public function getSignUp()
     {
         return view('user.signUp');
