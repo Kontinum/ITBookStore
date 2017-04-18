@@ -48,6 +48,24 @@ class UserController extends Controller
         return back()->with('success','User '.$userName.' has been successfully deleted');
     }
 
+    public function promoteToAdmin($userId)
+    {
+        $user = User::find($userId);
+
+        $user->roles()->sync(1);
+
+        return back()->with('success','User '.$user->username.' has been successfully promoted to admin');
+    }
+
+    public function backToRegular($userId)
+    {
+        $user = User::find($userId);
+
+        $user->roles()->sync(2);
+
+        return back()->with('success','User '.$user->username.' has been successfully returned to regular user');
+    }
+
     public function getSignUp()
     {
         return view('user.signUp');
