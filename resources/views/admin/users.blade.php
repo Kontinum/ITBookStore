@@ -53,9 +53,20 @@
                 @foreach($users as $user)
                     <li class="list-group-item list-group-item-success col-lg-3 col-md-4 col-sm-6">
                         {{$user->username}}
-                        <a href="{{route('deleteUser',['userId' => $user->id])}}" class="pull-right" title="Delete user">
+                        <a href="{{route('deleteUser',['userId' => $user->id])}}" class="pull-right list-icon" title="Delete user">
                             <i class="fa fa-trash icon" aria-hidden="true"></i>
                         </a>
+                        @foreach($user->roles as $role)
+                            @if($role->name == 'regular')
+                                <a href="{{route('promoteToAdmin',['userId' => $user->id])}}" class="pull-right" title="Promote to admin">
+                                    <i class="fa fa-hand-o-up icon" aria-hidden="true"></i>
+                                </a>
+                            @else
+                                <a href="{{route('backToRegular',['userId' => $user->id])}}" class="pull-right" title="Back to regular">
+                                    <i class="fa fa-hand-o-down icon" aria-hidden="true"></i>
+                                </a>
+                            @endif
+                        @endforeach
                     </li>
                 @endforeach
             </ul>
