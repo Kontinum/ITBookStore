@@ -16,27 +16,27 @@
                 <div class="panel-body">
                     <form action="{{route('addUser')}}" method="post">
                         {{csrf_field()}}
-                        <div class="form-group col-lg-4">
+                        <div class="form-group col-lg-4 col-md-6 col-sm-6">
                             <label for="username">Username:<span class="required">*</span></label>
                             <input type="text" id="username" name="username" value="{{old('username')}}" class="form-control" placeholder="5-20 characters" required>
                         </div>
-                        <div class="form-group col-lg-4">
+                        <div class="form-group col-lg-4 col-md-6 col-sm-6">
                             <label for="password">Password:<span class="required">*</span></label>
                             <input type="password" id="password" name="password" class="form-control" placeholder="Minimum 6 characters" required>
                         </div>
-                        <div class="form-group col-lg-4">
+                        <div class="form-group col-lg-4 col-md-6 col-sm-6">
                             <label for="name">Name:<span class="required">*</span></label>
                             <input type="text" id="name" name="name" value="{{old('name')}}" class="form-control" placeholder="5-50 characters" required>
                         </div>
-                        <div class="form-group col-lg-4">
+                        <div class="form-group col-lg-4 col-md-6 col-sm-6">
                             <label for="email">Email:<span class="required">*</span></label>
                             <input type="email" id="email" name="email" value="{{old('email')}}" class="form-control" placeholder="Valid email address" required>
                         </div>
-                        <div class="form-group col-lg-4">
+                        <div class="form-group col-lg-4 col-md-6 col-sm-6">
                             <label for="address">Address:</label>
                             <input type="text" id="address" name="address" value="{{old('address')}}" class="form-control" placeholder="Valid address for shipping">
                         </div>
-                        <div class="form-group col-lg-4">
+                        <div class="form-group col-lg-4 col-md-6 col-sm-6">
                             <label for="phone">Phone:</label>
                             <input type="text" id="phone" name="phone" value="{{old('phone')}}" class="form-control" placeholder="Your phone number">
                         </div>
