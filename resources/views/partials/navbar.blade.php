@@ -65,7 +65,7 @@
                                         <a href="{{route('authors')}}"><i class="fa fa-user-circle icon" aria-hidden="true"></i> Authors</a>
                                     </li>
                                     <li>
-                                        <a href="#"><i class="fa fa-users icon" aria-hidden="true"></i> Users</a>
+                                        <a href="{{route('users')}}"><i class="fa fa-users icon" aria-hidden="true"></i> Users</a>
                                     </li>
                                     <li role="separator" class="divider"></li>
                                     <li>
