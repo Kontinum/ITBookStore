@@ -48,5 +48,17 @@
             </div>
             <hr>
         </div>
+        <div class="col-lg-12">
+            <ul class="list-group">
+                @foreach($users as $user)
+                    <li class="list-group-item list-group-item-success col-lg-3 col-md-4 col-sm-6">
+                        {{$user->username}}
+                        <a href="{{route('deleteUser',['userId' => $user->id])}}" class="pull-right" title="Delete user">
+                            <i class="fa fa-trash icon" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
     </div>
 @endsection
