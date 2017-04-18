@@ -15,6 +15,29 @@ class UserController extends Controller
 
         return view('admin.users',['users' => $users]);
     }
+
+    public function addUser(Request $request)
+    {
+        $this->validate($request,[
+            'username' => 'required|min:5|max:20',
+            'name'     => 'required|min:5|max:50',
+            'password' => 'required|min:6',
+            'email'    => 'email|unique:users',
+        ]);
+
+        $user = new User([
+            'username' => $request->input('username'),
+            'name'     => $request->input('name'),
+            'password' => bcrypt($request->input('password')),
+            'email'    => $request->input('email'),
+            'address'  => $request->input('address'),
+            'phone'    => $request->input('phone')
+        ]);
+        $user->save();
+        $user->roles()->attach(2);
+
+        return back()->with('success','User has been successfully added');
+    }
     public function getSignUp()
     {
         return view('user.signUp');
