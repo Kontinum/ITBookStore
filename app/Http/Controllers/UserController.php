@@ -11,7 +11,7 @@ class UserController extends Controller
     //Admin routes
     public function users()
     {
-        $users = User::orderBy('username','ASC')->get();
+        $users = User::where('id','<>',auth()->user()->id)->orderBy('username','ASC')->get();
 
         return view('admin.users',['users' => $users]);
     }
