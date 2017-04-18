@@ -86,6 +86,16 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
         'uses' => 'UserController@deleteUser',
         'as'   => 'deleteUser'
     ]);
+
+    Route::get('/promote-to-admin/{userId}',[
+        'uses' => 'UserController@promoteToAdmin',
+        'as'   => 'promoteToAdmin'
+    ]);
+
+    Route::get('/back-to-regular/{userId}',[
+        'uses' => 'UserController@backToRegular',
+        'as'   => 'backToRegular'
+    ]);
 });
 
 Route::group(['prefix' => 'user'],function(){
