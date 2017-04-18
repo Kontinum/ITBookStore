@@ -38,6 +38,16 @@ class UserController extends Controller
 
         return back()->with('success','User has been successfully added');
     }
+
+    public function deleteUser($userId)
+    {
+        $user = User::find($userId);
+        $userName = $user->username;
+        $user->delete();
+
+        return back()->with('success','User '.$userName.' has been successfully deleted');
+    }
+
     public function getSignUp()
     {
         return view('user.signUp');
