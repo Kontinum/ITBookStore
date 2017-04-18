@@ -101,6 +101,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
         'uses' => 'BookController@books',
         'as'   => 'books'
     ]);
+
+    Route::get('/add-book',[
+        'uses' => 'BookController@addBook',
+        'as'   => 'addBook'
+    ]);
 });
 
 Route::group(['prefix' => 'user'],function(){
