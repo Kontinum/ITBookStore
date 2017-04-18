@@ -56,7 +56,7 @@
                             @foreach(auth()->user()->roles as $role)
                                 @if($role->name == 'admin')
                                     <li>
-                                        <a href="#"><i class="fa fa-book icon" aria-hidden="true"></i> Books</a>
+                                        <a href="{{route('books')}}"><i class="fa fa-book icon" aria-hidden="true"></i> Books</a>
                                     </li>
                                     <li>
                                         <a href="{{route('categories')}}"><i class="fa fa-list-ul icon" aria-hidden="true"></i> Categories</a>
