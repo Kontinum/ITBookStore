@@ -96,6 +96,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
         'uses' => 'UserController@backToRegular',
         'as'   => 'backToRegular'
     ]);
+
+    Route::get('/books',[
+        'uses' => 'BookController@books',
+        'as'   => 'books'
+    ]);
 });
 
 Route::group(['prefix' => 'user'],function(){
