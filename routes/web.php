@@ -77,7 +77,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
         'as'   => 'users'
     ]);
 
-    Route::get('/add-user',[
+    Route::post('/add-user',[
         'uses' => 'UserController@addUser',
         'as'   => 'addUser'
     ]);
