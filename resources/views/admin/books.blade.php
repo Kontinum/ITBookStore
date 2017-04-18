@@ -33,14 +33,14 @@
                             <textarea name="book-description" rows="5" class="form-control" placeholder="Book description"></textarea>
                         </div>
                         <div class="form-group">
-                            <select name="book-categories[]" multiple class="form-control books-categories">
+                            <select style="width: 100%" name="book-categories[]" multiple class="form-control books-categories">
                                 @foreach($subcategories as $subcategory)
                                     <option value="{{$subcategory->id}}">{{$subcategory->name}}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group">
-                            <select name="book-authors[]" multiple class="form-control books-authors">
+                            <select style="width: 100%" name="book-authors[]" multiple class="form-control books-authors">
                                 @foreach($authors as $author)
                                     <option value="{{$author->id}}">{{$author->name}}</option>
                                 @endforeach
@@ -64,4 +64,17 @@
             <hr>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+        $('.books-categories').select2({
+            placeholder: "Select book categories",
+            maximumSelectionLength: 3
+        });
+        $('.books-authors').select2({
+            placeholder: "Select book authors",
+            maximumSelectionLength: 3
+        });
+    </script>
 @endsection
