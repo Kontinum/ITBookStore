@@ -76,6 +76,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
         'uses' => 'UserController@users',
         'as'   => 'users'
     ]);
+
+    Route::get('/add-user',[
+        'uses' => 'UserController@addUser',
+        'as'   => 'addUser'
+    ]);
 });
 
 Route::group(['prefix' => 'user'],function(){
