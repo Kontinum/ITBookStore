@@ -30,9 +30,9 @@ class AddingBookRequest extends FormRequest
             'book-description' => 'required',
             'books-categories' => 'required',
             'books-authors' => 'required',
-            'books-price' => 'required',
-            'books-picture' => 'required|url',
-            'books-pages' => 'required|int',
+            'book-price' => 'required',
+            'book-picture' => 'required|url',
+            'book-pages' => 'required|int',
         ];
     }
 }
