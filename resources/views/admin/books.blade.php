@@ -20,6 +20,7 @@
                 </div>
                 <div class="panel-body">
                     <form action="{{route('addBook')}}" method="post">
+                        {{csrf_field()}}
                         <div class="form-group">
                             <input type="text" name="book-isbn" value="{{old('book-isbn')}}" placeholder="Book ISBN" class="form-control" required>
                         </div>
@@ -30,7 +31,7 @@
                             <input type="text" name="book-year" value="{{old('book-year')}}" placeholder="Book year" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <textarea name="book-description" rows="5" class="form-control" placeholder="Book description"></textarea>
+                            <textarea name="book-description" rows="5" class="form-control" placeholder="Book description">{{old('book-description')}}</textarea>
                         </div>
                         <div class="form-group">
                             <select style="width: 100%" name="book-categories[]" multiple class="form-control books-categories" required>
