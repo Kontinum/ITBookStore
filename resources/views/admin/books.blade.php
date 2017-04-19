@@ -21,39 +21,39 @@
                 <div class="panel-body">
                     <form action="{{route('addBook')}}" method="post">
                         {{csrf_field()}}
-                        <div class="form-group">
+                        <div class="form-group col-lg-4">
                             <input type="text" name="book-isbn" value="{{old('book-isbn')}}" placeholder="Book ISBN" class="form-control" required>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group col-lg-4">
                             <input type="text" name="book-name" value="{{old('book-name')}}" placeholder="Book name" class="form-control" required>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group col-lg-4">
                             <input type="text" name="book-year" value="{{old('book-year')}}" placeholder="Book year" class="form-control" required>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group col-lg-12">
                             <textarea name="book-description" rows="5" class="form-control" placeholder="Book description">{{old('book-description')}}</textarea>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group col-lg-12">
                             <select style="width: 100%" name="book-categories[]" multiple class="form-control books-categories" required>
                                 @foreach($subcategories as $subcategory)
                                     <option value="{{$subcategory->id}}">{{$subcategory->name}}</option>
                                 @endforeach
                             </select>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group col-lg-12">
                             <select style="width: 100%" name="book-authors[]" multiple class="form-control books-authors" required>
                                 @foreach($authors as $author)
                                     <option value="{{$author->name}}">{{$author->name}}</option>
                                 @endforeach
                             </select>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group col-lg-4">
                             <input type="text" name="book-price" value="{{old('book-price')}}" placeholder="Book price" class="form-control" required>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group col-lg-4">
                             <input type="text" name="book-picture" value="{{old('book-picture')}}" placeholder="Book picture" class="form-control" required>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group col-lg-4">
                             <input type="text" name="book-pages" value="{{old('book-pages')}}" placeholder="Book pages" class="form-control" required>
                         </div>
                         <div class="form-group">
@@ -64,6 +64,7 @@
             </div>
             <hr>
         </div>
+        @include('partials.booksList')
     </div>
 @endsection
 
