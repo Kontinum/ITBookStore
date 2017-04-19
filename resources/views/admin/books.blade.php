@@ -70,11 +70,11 @@
 @section('scripts')
     <script>
         $('.books-categories').select2({
-            placeholder: "Select book categories",
+            placeholder: "Select up to 3 book categories",
             maximumSelectionLength: 3
         });
         $('.books-authors').select2({
-            placeholder: "Select book authors",
+            placeholder: "Select up to 3 book authors",
             maximumSelectionLength: 3
         });
     </script>
