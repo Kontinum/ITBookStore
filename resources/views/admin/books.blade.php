@@ -43,7 +43,7 @@
                         <div class="form-group">
                             <select style="width: 100%" name="book-authors[]" multiple class="form-control books-authors" required>
                                 @foreach($authors as $author)
-                                    <option value="{{$author->id}}">{{$author->name}}</option>
+                                    <option value="{{$author->name}}">{{$author->name}}</option>
                                 @endforeach
                             </select>
                         </div>
