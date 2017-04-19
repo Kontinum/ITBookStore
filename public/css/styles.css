@@ -39,3 +39,19 @@ nav.navbar.navbar-default{
 .icon{
     color: cornflowerblue;
 }
+
+.book-cover{
+    width: 300px;
+}
+
+.book-name, .book-edit-button{
+    margin-left: 10px;
+}
+
+.book-name{
+    font-weight: bold;
+}
+
+.book-delete-button{
+    margin-right: 10px;
+}
