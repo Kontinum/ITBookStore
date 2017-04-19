@@ -74,8 +74,9 @@
             maximumSelectionLength: 3
         });
         $('.books-authors').select2({
-            placeholder: "Select up to 3 book authors",
-            maximumSelectionLength: 3
+            placeholder: "Select or add up to 3 book authors",
+            maximumSelectionLength: 3,
+            tags: true
         });
     </script>
 @endsection
