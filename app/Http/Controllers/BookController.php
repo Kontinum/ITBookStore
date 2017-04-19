@@ -35,7 +35,10 @@ class BookController extends Controller
 
         $book->subcategories()->attach($request->input('book-categories'));
         $this->attachCategories($book, $request->input('book-categories'));
-        $book->authors()->attach($request->input('book-authors'));
+        
+        $authors = $this->checkAuthors($request->input('book-authors'));
+        $authorsId = Author::whereIn('name',$authors)->get()->pluck('id')->toArray();
+        $book->authors()->attach($authorsId);
 
         return back()->with('success','Book '.$book->name.' has been successfully added');
     }
@@ -47,5 +50,22 @@ class BookController extends Controller
             $category = Category::find($subcategory->category_id);
             $book->categories()->attach($category->id);
         }
+    }
+
+    public function checkAuthors(array $authors)
+    {
+        $authorsNames = [];
+        foreach ((array)$authors as $authorName) {
+            $findAuthor = Author::where('name',$authorName)->get();
+            if($findAuthor->isEmpty()){
+                $author = new Author([
+                    'name' => $authorName
+                ]);
+                $author->save();
+                $authorName = $author->name;
+            }
+            $authorsNames[] = $authorName;
+        }
+        return $authorsNames;
     }
 }
