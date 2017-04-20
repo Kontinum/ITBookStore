@@ -63,6 +63,7 @@
                     </form>
                 </div>
             </div>
+            @include('partials.searchBooksForm')
             <hr>
         </div>
         @include('partials.booksList')
