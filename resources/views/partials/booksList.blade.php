@@ -8,7 +8,7 @@
                     <p>
                         <a href="#" class="btn btn-primary book-edit-button" role="button">
                             <i class="fa fa-edit"></i> Edit</a>
-                        <a href="#" class="btn btn-danger book-delete-button pull-right" role="button">
+                        <a href="{{route('deleteBook',['bookId' => $book->id])}}" class="btn btn-danger book-delete-button pull-right" role="button">
                             <i class="fa fa-trash"></i> Delete</a></p>
                 </div>
             </div>
