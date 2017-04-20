@@ -68,4 +68,20 @@ class BookController extends Controller
         }
         return $authorsNames;
     }
+
+    public function searchBooks(Request $request)
+    {
+        $this->validate($request,[
+            'book-name' => 'required'
+        ]);
+
+        $bookName = $request->input('book-name');
+        $books = Book::where('name','LIKE','%'.$bookName.'%')->get();
+
+        if($books->isEmpty()){
+            return back()->with('error','There is no author with that name');
+        }
+
+        return view('admin.booksResult',['books' => $books, 'bookName' => $bookName]);
+    }
 }
