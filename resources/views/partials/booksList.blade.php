@@ -6,7 +6,7 @@
                 <div class="caption">
                     <h4 class="book-name">{{$book->name}}</h4>
                     <p>
-                        <a href="#" class="btn btn-primary book-edit-button" role="button">
+                        <a href="{{route('getEditBook',['bookId' => $book->id])}}" class="btn btn-primary book-edit-button" role="button">
                             <i class="fa fa-edit"></i> Edit</a>
                         <a href="{{route('deleteBook',['bookId' => $book->id])}}" class="btn btn-danger book-delete-button pull-right" role="button">
                             <i class="fa fa-trash"></i> Delete</a></p>
