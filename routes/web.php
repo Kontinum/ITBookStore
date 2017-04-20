@@ -111,6 +111,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
         'uses' => 'BookController@searchBooks',
         'as'   => 'searchBooks'
     ]);
+
+    Route::get('/delete-book/{bookId}',[
+        'uses' => 'BookController@deleteBook',
+        'as'   => 'deleteBook'
+    ]);
 });
 
 Route::group(['prefix' => 'user'],function(){
