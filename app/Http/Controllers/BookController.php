@@ -84,4 +84,13 @@ class BookController extends Controller
 
         return view('admin.booksResult',['books' => $books, 'bookName' => $bookName]);
     }
+
+    public function deleteBook($bookId)
+    {
+        $book = Book::find($bookId);
+        $bookName = $book->name;
+        $book->delete();
+
+        return redirect()->route('books')->with('success','Book '.$bookName.' has been successfully deleted');
+    }
 }
