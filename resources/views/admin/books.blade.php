@@ -17,8 +17,9 @@
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     Add new book
+                    <i style="line-height: 20px;cursor: pointer" class="addbook-toggle fa fa-arrow-down pull-right" aria-hidden="true"></i>
                 </div>
-                <div class="panel-body">
+                <div class="addbook-form panel-body">
                     <form action="{{route('addBook')}}" method="post">
                         {{csrf_field()}}
                         <div class="form-group col-lg-4">
