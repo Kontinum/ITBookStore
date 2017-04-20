@@ -85,6 +85,15 @@ class BookController extends Controller
         return view('admin.booksResult',['books' => $books, 'bookName' => $bookName]);
     }
 
+    public function getEditBook($bookId)
+    {
+        $book = Book::find($bookId);
+        $authors = Author::all();
+        $subcategories = Subcategory::all();
+
+        return view('admin.editBook', ['book' => $book, 'authors' => $authors, 'subcategories' => $subcategories]);
+    }
+
     public function deleteBook($bookId)
     {
         $book = Book::find($bookId);
