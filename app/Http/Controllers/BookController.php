@@ -43,6 +43,30 @@ class BookController extends Controller
         return back()->with('success','Book '.$book->name.' has been successfully added');
     }
 
+    public function postEditBook($bookId, AddingBookRequest $request)
+    {
+        $book = Book::find($bookId);
+
+            $book->isbn = $request->input('book-isbn');
+            $book->name = $request->input('book-name');
+            $book->year = $request->input('book-year');
+            $book->description = $request->input('book-description');
+            $book->price = $request->input('book-price');
+            $book->picture = $request->input('book-picture');
+            $book->pages = $request->input('book-pages');
+
+        $book->save();
+
+        $book->subcategories()->sync($request->input('book-categories'));
+        $this->syncCategories($book, $request->input('book-categories'));
+
+        $authors = $this->checkAuthors($request->input('book-authors'));
+        $authorsId = Author::whereIn('name',$authors)->get()->pluck('id')->toArray();
+        $book->authors()->sync($authorsId);
+
+        return back()->with('success','Book has been successfully added');
+    }
+
     public function attachCategories(Book $book,$subcategoriesId)
     {
         foreach ($subcategoriesId as $subcategoryId) {
@@ -50,6 +74,17 @@ class BookController extends Controller
             $category = Category::find($subcategory->category_id);
             $book->categories()->attach($category->id);
         }
+    }
+
+    public function syncCategories(Book $book,$subcategoriesId)
+    {
+        $categoriesId = [];
+        foreach ($subcategoriesId as $subcategoryId) {
+            $subcategory = Subcategory::find($subcategoryId);
+            $category = Category::find($subcategory->category_id);
+            $categoriesId[] = $category->id;
+        }
+        $book->categories()->sync($categoriesId);
     }
 
     public function checkAuthors(array $authors)
