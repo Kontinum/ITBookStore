@@ -76,7 +76,7 @@ nav.navbar.navbar-default{
     width: 300px;
 }
 
-.book-name, .book-edit-button{
+.book-name, .book-edit-button,.book-price{
     margin-left: 10px;
 }
 
@@ -86,4 +86,9 @@ nav.navbar.navbar-default{
 
 .book-delete-button{
     margin-right: 10px;
+}
+
+.book-price{
+    color: cornflowerblue;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.49);
 }
