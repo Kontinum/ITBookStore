@@ -9,7 +9,7 @@ class AuthorController extends Controller
 {
     public function authors()
     {
-        $authors = Author::all();
+        $authors = Author::orderBy('name','ASC')->get();
 
         return view('admin.authors',['authors' => $authors]);
     }
