@@ -22,6 +22,7 @@ class CreateBooksTable extends Migration
             $table->float('price',4,2);
             $table->string('picture')->default('bookdefault.png');
             $table->integer('pages');
+            $table->integer('buyers')->default(0);
             $table->timestamps();
         });
     }
