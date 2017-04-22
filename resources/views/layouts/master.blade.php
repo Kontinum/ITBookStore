@@ -19,9 +19,11 @@
 </head>
 <body>
     @include('partials.navbar')
-    <div class="container">
-        @include('errors.info-box')
-        @yield('content')
+    <div class="wrapper-div">
+        <div class="container">
+            @include('errors.info-box')
+            @yield('content')
+        </div>
     </div>
     <!-- Bootstrap JS CDN -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
