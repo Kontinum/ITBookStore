@@ -8,6 +8,10 @@ p{
     letter-spacing: 0.2px;
 }
 
+.wrapper-div{
+    margin-top: 60px;
+}
+
 /* Navbar categories*/
 .dropdown-menu li a:hover{
     background-color: #ededd0;
