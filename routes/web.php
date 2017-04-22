@@ -16,6 +16,11 @@ Route::get('/',[
     'as'   => 'getIndex'
 ]);
 
+Route::get('/book/{bookId}',[
+    'uses' => 'ShopController@book',
+    'as'   => 'book'
+]);
+
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
     Route::get('/authors',[
         'uses' => 'AuthorController@authors',
