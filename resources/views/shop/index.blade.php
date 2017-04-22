@@ -16,13 +16,19 @@
                     @foreach($popularBookChunk as $popularBook)
                         <div class="col-lg-3 col-md-3 col-sm-6 clearfix">
                             <div class="thumbnail book-thumbnail">
-                                <img class="img-responsive book-cover" src="{{$popularBook->picture}}" alt="{{$popularBook->name}} book cover">
+                                <a href="{{route('book',['bookId' => $popularBook->id])}}">
+                                    <img class="img-responsive book-cover" src="{{$popularBook->picture}}" alt="{{$popularBook->name}} book cover">
+                                </a>
                                 <div class="caption">
-                                    <h4 class="book-name">{{$popularBook->name}}</h4>
+                                    <h4 class="book-name">
+                                        <a style="text-decoration: none" class="book-link" href="{{route('book',['bookId' => $popularBook->id])}}">{{$popularBook->name}}</a>
+                                    </h4>
                                     <p>
                                         <em class="book-price">{{$popularBook->price}}$</em>
                                         <a href="" class="btn btn-success pull-right" role="button" title="Add to cart">
-                                            <i class="fa fa-lg fa-cart-plus" aria-hidden="true"></i></a></p>
+                                            <i class="fa fa-lg fa-cart-plus" aria-hidden="true"></i>
+                                        </a>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -40,9 +46,13 @@
             @foreach($newBookChunk as $newBook)
                 <div class="col-lg-3 col-md-3 col-sm-6">
                     <div class="thumbnail book-thumbnail">
-                        <img class="img-responsive book-cover" src="{{$newBook->picture}}" alt="{{$newBook->name}} book cover">
+                        <a href="{{route('book', ['bookId' => $newBook->id])}}">
+                            <img class="img-responsive book-cover" src="{{$newBook->picture}}" alt="{{$newBook->name}} book cover">
+                        </a>
                         <div class="caption">
-                            <h4 class="book-name">{{$newBook->name}}</h4>
+                            <h4 class="book-name">
+                                <a style="text-decoration: none" href="{{route('book', ['bookId' => $newBook->id])}}">{{$newBook->name}}</a>
+                            </h4>
                             <p>
                                 <em class="book-price">{{$newBook->price}}$</em>
                                 <a href="" class="btn btn-success pull-right" role="button" title="Add to cart">
