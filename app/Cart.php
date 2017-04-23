@@ -27,7 +27,6 @@ class Cart
             }
         }
 
-
         $singleItemGroup['qty']++;
         $singleItemGroup['price'] += $item->price;
         $this->items[$item->id] = $singleItemGroup;
