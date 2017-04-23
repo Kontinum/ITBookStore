@@ -100,3 +100,16 @@ nav.navbar.navbar-default{
 .badge{
     background-color: cornflowerblue;
 }
+
+.shopping-cart-list{
+    line-height: 150px;
+}
+
+.shopping-cart-list p{
+    font-weight: normal;
+}
+
+.shopping-cart-quantity, .shopping-cart-price{
+    font-weight: bold;
+    color: cornflowerblue;
+}
