@@ -36,7 +36,7 @@
             @endforeach
             <br><br>
             Price: <em class="book-price col">{{$book->price}}$</em><br><br>
-            <a href="" class="">
+            <a href="{{route('addToCart',['bookId' => $book->id])}}" class="">
                 <button class="btn btn-success">
                     <i class="fa fa-lg fa-cart-plus" aria-hidden="true"></i> Add to cart
                 </button>
