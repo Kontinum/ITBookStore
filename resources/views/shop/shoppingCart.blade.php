@@ -24,7 +24,7 @@
                            <div class="col-lg-4">
                                <p>
                                    Quantity:&nbsp;
-                                   <a style="text-decoration: none" href="" title="Decrease quantity for one">
+                                   <a style="text-decoration: none" href="{{route('decreaseByOne',['itemId' => $item['item']->id])}}" title="Decrease quantity for one">
                                        <button class="btn btn-success">
                                            <i class="fa fa-minus" aria-hidden="true"></i>
                                        </button>
