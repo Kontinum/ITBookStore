@@ -47,4 +47,16 @@ class ShopController extends Controller
 
         return back();
     }
+
+    public function shoppingCart()
+    {
+        if(!session()->has('cart')){
+            return back()->with('error','Your shopping cart is empty');
+        }
+
+        $oldCart = session()->get('cart');
+        $cart = new Cart($oldCart);
+
+        return view('shop.shoppingCart',['items' => $cart->items, 'totalQty' => $cart->totalQty, 'totalPrice' => $cart->totalPrice]);
+    }
 }
