@@ -59,4 +59,31 @@ class ShopController extends Controller
 
         return view('shop.shoppingCart',['items' => $cart->items, 'totalQty' => $cart->totalQty, 'totalPrice' => $cart->totalPrice]);
     }
+
+    public function decreaseByOne($itemId)
+    {
+        if(!session()->has('cart')){
+            return redirect()->route('getIndex');
+        }
+
+        $book = Book::find($itemId);
+        if(!$book){
+            return redirect()->route('getIndex');
+        }
+
+        $oldCart = session()->get('cart');
+        $cart = new Cart($oldCart);
+
+        $decreaseByOne = $cart->decreaseByOne($itemId,$book);
+
+        if($decreaseByOne){
+            session()->put('cart',$cart);
+            if($cart->totalQty == 0){
+                session()->forget('cart');
+                return redirect()->route('getIndex')->with('error','Your shopping cart is empty');
+            }
+            return redirect()->route('shoppingCart');
+        }
+        return redirect()->route('getIndex');
+    }
 }
