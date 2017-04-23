@@ -26,6 +26,11 @@ Route::get('/add-to-cart/{bookId}',[
     'as'   => 'addToCart'
 ]);
 
+Route::get('/shopping-cart',[
+    'uses' => 'ShopController@shoppingCart',
+    'as'   => 'shoppingCart'
+]);
+
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
     Route::get('/authors',[
         'uses' => 'AuthorController@authors',
