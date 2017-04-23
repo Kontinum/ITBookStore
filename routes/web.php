@@ -31,6 +31,11 @@ Route::get('/shopping-cart',[
     'as'   => 'shoppingCart'
 ]);
 
+Route::get('/decrease-by-one/{itemId}',[
+    'uses' => 'ShopController@decreaseByOne',
+    'as'   => 'decreaseByOne'
+]);
+
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
     Route::get('/authors',[
         'uses' => 'AuthorController@authors',
