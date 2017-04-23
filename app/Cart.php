@@ -33,4 +33,22 @@ class Cart
         $this->totalQty++;
         $this->totalPrice += $item->price;
     }
+
+    public function decreaseByOne($itemId,$item)
+    {
+        if($this->items){
+            if(array_key_exists($itemId,$this->items)){
+                $this->items[$itemId]['qty']--;
+                $this->items[$itemId]['price'] -= $item->price;
+                $this->totalQty--;
+                $this->totalPrice -= $item->price;
+
+                if($this->items[$itemId]['qty'] <= 0){
+                    unset($this->items[$itemId]);
+                }
+                return true;
+            }
+            return false;
+        }
+    }
 }
