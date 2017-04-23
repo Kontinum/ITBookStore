@@ -25,7 +25,7 @@
                                     </h4>
                                     <p>
                                         <em class="book-price">{{$popularBook->price}}$</em>
-                                        <a href="" class="btn btn-success pull-right" role="button" title="Add to cart">
+                                        <a href="{{route('addToCart',['bookId' => $popularBook->id])}}" class="btn btn-success pull-right" role="button" title="Add to cart">
                                             <i class="fa fa-lg fa-cart-plus" aria-hidden="true"></i>
                                         </a>
                                     </p>
@@ -55,7 +55,7 @@
                             </h4>
                             <p>
                                 <em class="book-price">{{$newBook->price}}$</em>
-                                <a href="" class="btn btn-success pull-right" role="button" title="Add to cart">
+                                <a href="{{route('addToCart',['bookId' => $newBook->id])}}" class="btn btn-success pull-right" role="button" title="Add to cart">
                                     <i class="fa fa-lg fa-cart-plus" aria-hidden="true"></i></a></p>
                         </div>
                     </div>
