@@ -39,7 +39,7 @@
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">
+                <li><a href="{{route('shoppingCart')}}">
                         <i class="fa fa-shopping-cart icon" aria-hidden="true"></i> Shopping cart
                         @if(session()->has('cart'))
                             <span class="badge">{{session()->get('cart')->totalQty}}</span>
