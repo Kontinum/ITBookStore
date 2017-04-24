@@ -55,7 +55,7 @@
             <ul class="list-group">
                 <li class="list-group-item clearfix">
                     <p class="pull-left">Total price: <span class="shopping-cart-price">{{$totalPrice}}$</span></p>
-                    <a href="" class="pull-right">
+                    <a href="{{route('checkout')}}" class="pull-right">
                         <button class="btn btn-success">
                             <i class="fa fa-credit-card" aria-hidden="true"></i>    Checkout
                         </button>
