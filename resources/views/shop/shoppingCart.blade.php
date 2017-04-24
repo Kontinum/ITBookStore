@@ -16,6 +16,9 @@
         <div class="col-lg-8 col-lg-offset-2">
             <ul class="list-group">
                 @foreach($items as $item)
+                    <li class="list-group-item">
+                        {{$item['item']->name}}
+                    </li>
                     <li class="shopping-cart-list list-group-item">
                        <div class="row">
                            <div class="col-lg-4">
