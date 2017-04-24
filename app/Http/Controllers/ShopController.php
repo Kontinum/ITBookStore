@@ -60,6 +60,17 @@ class ShopController extends Controller
         return view('shop.shoppingCart',['items' => $cart->items, 'totalQty' => $cart->totalQty, 'totalPrice' => $cart->totalPrice]);
     }
 
+    public function checkout()
+    {
+        if(!session()->has('cart')){
+            return redirect()->route('getIndex');
+        }
+
+        $oldCart = session()->get('cart');
+        $cart = new Cart($oldCart);
+        return view('shop.checkout', ['totalPrice' => $cart->totalPrice]);
+    }
+
     public function decreaseByOne($itemId)
     {
         if(!session()->has('cart')){
