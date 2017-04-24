@@ -35,7 +35,7 @@
                                    <span class="shopping-cart-quantity">
                                        {{$item['qty']}}
                                    </span>&nbsp;&nbsp;
-                                   <a href="" title="Increase quantity for one">
+                                   <a href="{{route('increaseByOne', ['itemId' => $item['item']->id])}}" title="Increase quantity for one">
                                        <button class="btn btn-success">
                                            <i class="fa fa-plus" aria-hidden="true"></i>
                                        </button>
