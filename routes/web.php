@@ -47,6 +47,12 @@ Route::get('/checkout',[
     'as'   => 'checkout'
 ]);
 
+Route::post('/checkout',[
+    'middleware' => 'auth',
+    'uses' => 'ShopController@postCheckout',
+    'as'   => 'postCheckout'
+]);
+
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
     Route::get('/authors',[
         'uses' => 'AuthorController@authors',
