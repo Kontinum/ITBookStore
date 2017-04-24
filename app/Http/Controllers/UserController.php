@@ -92,7 +92,7 @@ class UserController extends Controller
         $user->roles()->attach(2);
         Auth::login($user,true);
 
-        return redirect()->route('getIndex');
+        return redirect(session()->get('oldUrl'));
     }
 
     public function getSignIn()
@@ -110,7 +110,7 @@ class UserController extends Controller
         $remember_me = ($request->input('remember_me') === 'on') ? true : false;
 
         if(Auth::attempt(['email' => $request->input('email'),'password' => $request->input('password')],$remember_me)){
-            return redirect()->route('getIndex');
+            return redirect(session()->get('oldUrl'));
         }
         return back()->with('error','Username or password incorrect');
     }
