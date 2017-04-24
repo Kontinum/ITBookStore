@@ -86,4 +86,27 @@ class ShopController extends Controller
         }
         return redirect()->route('getIndex');
     }
+
+    public function increaseByOne($itemId)
+    {
+        if(!session()->has('cart')){
+            return redirect()->route('getIndex');
+        }
+
+        $book = Book::find($itemId);
+        if(!$book){
+            return redirect()->route('getIndex');
+        }
+
+        $oldCart = session()->get('cart');
+        $cart = new Cart($oldCart);
+
+        $increaseByOne = $cart->increaseByOne($itemId,$book);
+
+        if($increaseByOne){
+            session()->put('cart',$cart);
+            return redirect()->route('shoppingCart');
+        }
+        return redirect()->route('getIndex');
+    }
 }
