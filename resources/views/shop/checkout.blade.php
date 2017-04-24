@@ -55,3 +55,8 @@
         </div>
     </div>
 @endsection
+
+@section('scripts')
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script src="{{url()->to('js/checkout.js')}}"></script>
+@endsection
