@@ -27,6 +27,8 @@
                     <button type="submit" class="btn btn-primary pull-right">Login</button>
                 </div>
             </form>
+            <br><hr>
+            Dont have an account? <a href="{{route('getSignUp')}}">Register</a>
         </div>
     </div>
 @endsection
