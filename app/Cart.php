@@ -51,4 +51,20 @@ class Cart
             return false;
         }
     }
+
+    public function increaseByOne($itemId,$item)
+    {
+        if($this->items){
+            if(array_key_exists($itemId,$this->items)){
+                if($this->items[$itemId]['qty'] < 10){
+                    $this->items[$itemId]['qty']++;
+                    $this->items[$itemId]['price'] += $item->price;
+                    $this->totalQty++;
+                    $this->totalPrice += $item->price;
+                }
+                return true;
+            }
+            return false;
+        }
+    }
 }
