@@ -21,12 +21,12 @@
                     </li>
                     <li class="shopping-cart-list list-group-item">
                        <div class="row">
-                           <div class="col-lg-4">
+                           <div class="col-sm-4 col-xs-4">
                                <img style="width: 125px" src="{{$item['item']->picture}}" alt="">
                            </div>
-                           <div class="col-lg-4">
+                           <div class="col-sm-4 col-sm-offset-0 col-xs-4 col-xs-offset-1">
                                <p>
-                                   Quantity:&nbsp;
+                                   <span class="hidden-xs">Quantity:</span>&nbsp;
                                    <a style="text-decoration: none" href="{{route('decreaseByOne',['itemId' => $item['item']->id])}}" title="Decrease quantity for one">
                                        <button class="btn btn-success">
                                            <i class="fa fa-minus" aria-hidden="true"></i>
@@ -42,9 +42,9 @@
                                    </a>
                                </p>
                            </div>
-                           <div class="col-lg-4">
+                           <div class="col-sm-4 col-xs-3">
                                <p class="pull-right">
-                                   Price: <span class="shopping-cart-price">{{$item['price']}}$</span>
+                                   <span class="hidden-xs">Price:</span> <span class="shopping-cart-price">{{$item['price']}}$</span>
                                </p>
                            </div>
                        </div>
