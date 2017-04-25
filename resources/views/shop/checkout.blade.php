@@ -14,25 +14,26 @@
     </div>
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
+            <div id="charge-error" class="alert alert-danger {{!session()->has('charge-error') ? 'hidden' : ''}}"></div>
             <form action="{{route('postCheckout')}}" method="post" id="checkout-form">
                 {{csrf_field()}}
                 <div class="form-group">
                     <label for="name">Name:<span class="required">*</span></label>
-                    <input type="text" id="name" name="name" value="{{auth()->user()->name}}" class="form-control user-name" placeholder="Name for shipping" required>
+                    <input type="text" id="name" name="name" value="{{auth()->user()->name}}" class="form-control user-name" placeholder="Card holder name" required>
                 </div>
                 <div class="form-group">
                     <label for="address">Address:<span class="required">*</span></label>
-                    <input type="text" id="address" name="address" value="{{auth()->user()->address}}" class="form-control user-eddress" placeholder="Valid address for shipping" required>
+                    <input type="text" id="address" name="address"  class="form-control user-eddress" value="{{auth()->user()->address}}" placeholder="Valid address for shipping" required>
                 </div>
                 <div class="form-group">
                     <label for="phone">Phone:<span class="required">*</span></label>
-                    <input type="tel" id="phone" name="phone" value="{{auth()->user()->phone}}" class="form-control user-phone" placeholder="Your phone number" required>
+                    <input type="tel" id="phone" name="phone" value="{{auth()->user()->phone}}" class="form-control" placeholder="Your phone number" required>
                 </div>
                 <div class="form-group">
                    <div class="row">
                        <div class="col-lg-6">
                            <label for="card-number">Card number:<span class="required">*</span></label>
-                           <input type="text" id="card-number" value="{{auth()->user()->cardnumber}}" class="form-control" placeholder="Valid card number" required>
+                           <input type="text" id="card-number"  class="form-control" placeholder="Valid card number" required>
                        </div>
                        <div class="col-lg-2">
                            <label for="card-expiry-month">Exp month:<span class="required">*</span></label>
