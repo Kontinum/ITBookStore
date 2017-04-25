@@ -7,6 +7,9 @@ use App\Cart;
 use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Stripe\Charge;
+use Stripe\Order;
+use Stripe\Stripe;
 
 class ShopController extends Controller
 {
@@ -69,6 +72,43 @@ class ShopController extends Controller
         $oldCart = session()->get('cart');
         $cart = new Cart($oldCart);
         return view('shop.checkout', ['totalPrice' => $cart->totalPrice]);
+    }
+
+    public function postCheckout(Request $request)
+    {
+        if(!session()->has('cart')){
+            return redirect()->route('getIndex');
+        }
+
+        $oldCart = session()->get('cart');
+        $cart = new Cart($oldCart);
+
+        //setting our secret stripe key
+        Stripe::setApiKey('sk_test_HtliPx7nEk2G9WuJt9BGoF0q');
+
+        //trying to create a charge
+        try
+        {
+            $charge = Charge::create(array(
+                "amount" => $cart->totalPrice * 100,
+                "currency" => "usd",
+                "source" => $request->input('stripeToken'),
+                "description" => "Charge for ".auth()->user()->name." at ".auth()->user()->email
+            ));
+
+            //if charging is success
+            $order = new \App\Order();
+            $order->cart = serialize($cart);
+            $order->address = $request->input('address');
+            $order->name = $request->input('name');
+            $order->payment_id = $charge->id;
+
+            auth()->user()->orders()->save($order);
+        }catch(\Exception $e){
+            return redirect()->route('checkout')->with('error',$e->getMessage());
+        }
+        session()->forget('cart');
+        return redirect()->route('getIndex')->with('success','Successfully purchased books! :)');
     }
 
     public function decreaseByOne($itemId)
