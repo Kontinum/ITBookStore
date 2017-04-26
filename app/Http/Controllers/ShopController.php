@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Author;
 use App\Book;
 use App\Cart;
 use App\Category;
@@ -46,6 +47,13 @@ class ShopController extends Controller
         $books = $subcategory->books()->get();
 
         return view('shop.subcategoryBooks',['books'=>$books,'subcategoryName' => $subcategory->name]);
+    }
+
+    public function authorBooks(Author $author)
+    {
+        $books = $author->books()->get();
+
+        return view('shop.authorBooks',['books'=>$books,'authorName' => $author->name]);
     }
 
     public function addToCart($bookId)
