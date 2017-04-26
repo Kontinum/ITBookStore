@@ -37,21 +37,21 @@ class ShopController extends Controller
 
     public function categoryBooks(Category $category)
     {
-        $books = $category->books()->get();
+        $books = $category->books()->orderBy('created_at','DESC')->get();
 
         return view('shop.categoryBooks',['books'=>$books,'categoryName' => $category->name]);
     }
 
     public function subcategoryBooks(Subcategory $subcategory)
     {
-        $books = $subcategory->books()->get();
+        $books = $subcategory->books()->orderBy('created_at','DESC')->get();
 
         return view('shop.subcategoryBooks',['books'=>$books,'subcategoryName' => $subcategory->name]);
     }
 
     public function authorBooks(Author $author)
     {
-        $books = $author->books()->get();
+        $books = $author->books()->orderBy('created_at','DESC')->get();
 
         return view('shop.authorBooks',['books'=>$books,'authorName' => $author->name]);
     }
