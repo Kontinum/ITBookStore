@@ -32,15 +32,18 @@
                     </ul>
                 </li>
             </ul>
-            <form action="{{route('bookSearch')}}" method="get" class="navbar-form navbar-left hidden-sm">
+            <form action="{{route('bookSearch')}}" method="get" class="navbar-form navbar-left">
                 <div class="form-group">
                     <input type="text" name="book" class="form-control" placeholder="Search books">
                 </div>
-                <button type="submit" class="btn btn-default">Search</button>
+                <button type="submit" class="btn btn-default">
+                    <span class="hidden-sm">Search</span>
+                    <i class="fa fa-search icon visible-sm" aria-hidden="true"></i>
+                </button>
             </form>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="{{route('shoppingCart')}}">
-                        <i class="fa fa-shopping-cart icon" aria-hidden="true"></i> Shopping cart
+                        <i class="fa fa-shopping-cart icon" aria-hidden="true"></i> <span class="hidden-sm">Shopping cart</span>
                         @if(session()->has('cart'))
                             <span class="badge">{{session()->get('cart')->totalQty}}</span>
                         @endif
