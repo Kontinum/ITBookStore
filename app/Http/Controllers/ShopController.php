@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Book;
 use App\Cart;
 use App\Category;
+use App\Subcategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Stripe\Charge;
@@ -38,6 +39,13 @@ class ShopController extends Controller
         $books = $category->books()->get();
 
         return view('shop.categoryBooks',['books'=>$books,'categoryName' => $category->name]);
+    }
+
+    public function subcategoryBooks(Subcategory $subcategory)
+    {
+        $books = $subcategory->books()->get();
+
+        return view('shop.subcategoryBooks',['books'=>$books,'subcategoryName' => $subcategory->name]);
     }
 
     public function addToCart($bookId)
