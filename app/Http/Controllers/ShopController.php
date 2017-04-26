@@ -56,6 +56,19 @@ class ShopController extends Controller
         return view('shop.authorBooks',['books'=>$books,'authorName' => $author->name]);
     }
 
+    public function bookSearch(Request $request)
+    {
+        $this->validate($request,[
+            'book' => 'required'
+        ]);
+
+        $bookName = $request->input('book');
+
+        $books = Book::where('name','LIKE','%'.$bookName.'%')->orderBy('created_at','DESC')->get();
+
+        return view('shop.bookSearch',['books' => $books, 'bookName' => $bookName]);
+    }
+
     public function addToCart($bookId)
     {
         $book = Book::find($bookId);
