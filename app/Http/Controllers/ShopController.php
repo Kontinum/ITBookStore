@@ -33,6 +33,13 @@ class ShopController extends Controller
         return view('shop.book', ['book' => $book, 'categories' => $categories]);
     }
 
+    public function categoryBooks(Category $category)
+    {
+        $books = $category->books()->get();
+
+        return view('shop.categoryBooks',['books'=>$books,'categoryName' => $category->name]);
+    }
+
     public function addToCart($bookId)
     {
         $book = Book::find($bookId);
