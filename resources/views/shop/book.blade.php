@@ -18,7 +18,7 @@
         <div class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-0 col-sm-4">
             Author(s):
             @foreach($book->authors as $author)
-                <a style="text-decoration: none" href="">{{$author->name}}</a>
+                <a style="text-decoration: none" href="{{route('authorBooks',['name' => $author->name])}}">{{$author->name}}</a>
                 @if($loop->remaining)
                     , &nbsp;
                 @endif
