@@ -10,7 +10,7 @@
                 <div class="media-body">
                     <a style="text-decoration: none" href="{{route('book',['bookId' => $book->id])}}"><h4 class="media-heading"><em style="font-weight: bold">{{$book->name}}</em></h4></a>
                     By:@foreach($book->authors as $author)
-                        <a href="">{{$author->name}}</a>
+                        <a href="{{route('authorBooks',['name' => $author->name])}}">{{$author->name}}</a>
                         @if($loop->remaining)
                             , &nbsp;
                         @endif
