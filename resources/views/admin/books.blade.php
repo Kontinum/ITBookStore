@@ -66,7 +66,7 @@
             @include('partials.searchBooksForm')
             <hr>
         </div>
-        @include('partials.booksList')
+        @include('partials.booksListAdmin')
     </div>
 @endsection
 
