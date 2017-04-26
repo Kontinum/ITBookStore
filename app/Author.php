@@ -14,4 +14,9 @@ class Author extends Model
     {
         return $this->belongsToMany(Book::class);
     }
+
+    public function getRouteKeyName()
+    {
+        return 'name';
+    }
 }
