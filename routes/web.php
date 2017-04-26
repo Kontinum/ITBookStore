@@ -31,6 +31,11 @@ Route::get('/subcategory/{subcategory}',[
     'as'   => 'subcategoryBooks'
 ]);
 
+Route::get('/author/{author}',[
+    'uses' => 'ShopController@authorBooks',
+    'as'   => 'authorBooks'
+]);
+
 Route::get('/add-to-cart/{bookId}',[
     'uses' => 'ShopController@addToCart',
     'as'   => 'addToCart'
