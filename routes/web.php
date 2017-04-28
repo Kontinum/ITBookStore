@@ -204,6 +204,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
         'uses' => 'ShopController@checkOrder',
         'as'   => 'checkOrder'
     ]);
+
+    Route::get('/search-orders',[
+        'uses' => 'ShopController@searchOrders',
+        'as'   => 'searchOrders'
+    ]);
 });
 
 Route::group(['prefix' => 'user'],function(){
