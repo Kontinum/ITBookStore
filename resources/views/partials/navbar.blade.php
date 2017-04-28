@@ -61,8 +61,12 @@
                             <li>
                                 <a href="{{route('getProfile')}}"><i class="fa fa-user icon" aria-hidden="true"></i> Profile</a>
                             </li>
+                            <li>
+                                <a href=""><i class="fa fa-list-ol icon" aria-hidden="true"></i> Your Orders</a>
+                            </li>
                             @foreach(auth()->user()->roles as $role)
                                 @if($role->name == 'admin')
+                                    <li role="separator" class="divider"></li>
                                     <li>
                                         <a href="{{route('books')}}"><i class="fa fa-book icon" aria-hidden="true"></i> Books</a>
                                     </li>
@@ -78,10 +82,6 @@
                                     <li role="separator" class="divider"></li>
                                     <li>
                                         <a href=""><i class="fa fa-list-ol icon" aria-hidden="true"></i> Orders</a>
-                                    </li>
-                                @else
-                                    <li>
-                                        <a href=""><i class="fa fa-list-ol icon" aria-hidden="true"></i> Your Orders</a>
                                     </li>
                                 @endif
                             @endforeach
