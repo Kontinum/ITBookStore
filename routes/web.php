@@ -209,6 +209,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
         'uses' => 'ShopController@searchOrders',
         'as'   => 'searchOrders'
     ]);
+
+    Route::get('/deliver-order/{orderId}',[
+        'uses' => 'ShopController@deliverOrder',
+        'as'   => 'deliverOrder'
+    ]);
 });
 
 Route::group(['prefix' => 'user'],function(){
