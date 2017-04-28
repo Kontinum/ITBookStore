@@ -208,10 +208,20 @@ Route::group(['prefix' => 'user'],function(){
         ]);
     });
     Route::group(['middleware' => 'auth'],function(){
-            Route::get('/profile',[
-                'uses' => 'UserController@getProfile',
-                'as'   => 'getProfile'
-            ]);
+        Route::get('/profile',[
+            'uses' => 'UserController@getProfile',
+            'as'   => 'getProfile'
+        ]);
+
+        Route::get('/change-password',[
+            'uses' => 'UserController@getChangePassword',
+            'as'   => 'getChangePassword'
+        ]);
+
+        Route::post('/change-password',[
+            'uses' => 'UserController@postChangePassword',
+            'as'   => 'postChangePassword'
+        ]);
 
         Route::get('/logout',[
             'uses' => 'UserController@logout',
