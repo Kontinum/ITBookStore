@@ -189,6 +189,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
         'uses' => 'BookController@postEditBook',
         'as'   => 'postEditBook'
     ]);
+
+    Route::get('/orders',[
+        'uses' => 'ShopController@orders',
+        'as'   => 'orders'
+    ]);
 });
 
 Route::group(['prefix' => 'user'],function(){
