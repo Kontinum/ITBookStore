@@ -71,7 +71,9 @@ class ShopController extends Controller
 
     public function getOrders()
     {
-        $orders = auth()->user()->orders()->orderBy('created_at','DESC')->get();
+        $orders = auth()->user()->orders()
+            ->where('delivered',1)
+            ->orderBy('created_at','DESC')->get();
 
         if($orders->isEmpty()){
             return back()->with('error','You don\'t have any orders');
