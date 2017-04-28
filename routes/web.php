@@ -194,6 +194,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
         'uses' => 'ShopController@orders',
         'as'   => 'orders'
     ]);
+
+    Route::get('/unchecked-orders',[
+        'uses' => 'ShopController@uncheckedOrders',
+        'as'   => 'uncheckedOrders'
+    ]);
 });
 
 Route::group(['prefix' => 'user'],function(){
