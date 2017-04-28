@@ -69,6 +69,22 @@ class ShopController extends Controller
         return view('shop.bookSearch',['books' => $books, 'bookName' => $bookName]);
     }
 
+    public function getOrders()
+    {
+        $orders = auth()->user()->orders()->orderBy('created_at','DESC')->get();
+
+        if($orders->isEmpty()){
+            return back()->with('error','You don\'t have any orders');
+        }
+
+        $orders->transform(function($order, $key){
+            $order->cart = unserialize($order->cart);
+            return $order;
+        });
+
+        return view('shop.getOrders',['orders' => $orders]);
+    }
+
     public function addToCart($bookId)
     {
         $book = Book::find($bookId);
