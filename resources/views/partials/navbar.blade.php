@@ -81,7 +81,7 @@
                                     </li>
                                     <li role="separator" class="divider"></li>
                                     <li>
-                                        <a href=""><i class="fa fa-list-ol icon" aria-hidden="true"></i> Orders</a>
+                                        <a href="{{route('orders')}}"><i class="fa fa-list-ol icon" aria-hidden="true"></i> Orders</a>
                                     </li>
                                 @endif
                             @endforeach
