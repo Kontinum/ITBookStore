@@ -32,9 +32,11 @@
                             Address: <span class="search-count">{{$order->address}}</span> |
                             Date: <span class="search-count">{{$order->created_at}}</span>
                         </em>
-                        <button class="btn btn-success pull-right">
-                            <i class="fa fa-check" aria-hidden="true"></i> Check
-                        </button>
+                        <a href="{{route('checkOrder',['orderId' => $order->id])}}">
+                            <button class="btn btn-success pull-right">
+                                <i class="fa fa-check" aria-hidden="true"></i> Check
+                            </button>
+                        </a>
                     </div>
                     <div class="panel-body">
                         @foreach($order->cart->items as $item)
