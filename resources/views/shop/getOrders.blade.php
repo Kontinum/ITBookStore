@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    {{auth()->user()->username}} profile
+    {{auth()->user()->username}} orders
 @endsection
 
 @section('content')
