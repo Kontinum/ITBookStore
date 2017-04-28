@@ -7,7 +7,8 @@
 @section('content')
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
-            <p><i class="search-count">{{auth()->user()->username}}</i> profile</p>
+            <h2><i class="fa fa-user icon" aria-hidden="true"></i> <em class="search-count"> {{auth()->user()->username}}</em> profile</h2>
+            <hr style="background-color: cornflowerblue;margin-top: 0" class="col-lg-12">
         </div>
     </div>
     <div class="row">
