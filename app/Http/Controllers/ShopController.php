@@ -90,6 +90,23 @@ class ShopController extends Controller
         return view('admin.orders');
     }
 
+    public function uncheckedOrders()
+    {
+        $orders = \App\Order::where('checked',0)
+            ->orderBy('created_at','ASC')->get();
+
+        if($orders->isEmpty()){
+            return back()->with('error','There are no unchecked orders');
+        }
+
+        $orders->transform(function($order, $key){
+            $order->cart = unserialize($order->cart);
+            return $order;
+        });
+
+        return view('admin.uncheckedOrders',['orders' =>$orders]);
+    }
+
     public function addToCart($bookId)
     {
         $book = Book::find($bookId);
