@@ -3,8 +3,7 @@
         Search orders
     </div>
     <div class="panel-body">
-        <form action="{{route('addAuthor')}}" method="post">
-            {{csrf_field()}}
+        <form action="{{route('searchOrders')}}" method="get">
             <div class="form-group">
                 <input type="text" name="order-id" value="{{old('order-id')}}" class="form-control" placeholder="Order payment ID" required>
             </div>
