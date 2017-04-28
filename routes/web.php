@@ -223,6 +223,11 @@ Route::group(['prefix' => 'user'],function(){
             'as'   => 'postChangePassword'
         ]);
 
+        Route::get('/edit-profile',[
+            'uses' => 'UserController@getEditProfile',
+            'as'   => 'getEditProfile'
+        ]);
+
         Route::get('/logout',[
             'uses' => 'UserController@logout',
             'as'   => 'logout'
