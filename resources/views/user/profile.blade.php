@@ -23,7 +23,7 @@
                     <i class="fa fa-key" aria-hidden="true"></i> Change password
                 </button>
             </a>
-            <a href="">
+            <a href="{{route('getOrders')}}">
                 <button class="btn btn-primary">
                     <i class="fa fa-list" aria-hidden="true"></i> View orders
                 </button>
