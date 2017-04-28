@@ -107,6 +107,16 @@ class ShopController extends Controller
         return view('admin.uncheckedOrders',['orders' =>$orders]);
     }
 
+    public function checkOrder($orderId)
+    {
+        $order = \App\Order::find($orderId);
+
+        $order->checked = 1;
+        $order->save();
+
+        return back()->with('success','Order has been successfully checked');
+    }
+
     public function addToCart($bookId)
     {
         $book = Book::find($bookId);
