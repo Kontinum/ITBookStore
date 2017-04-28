@@ -36,7 +36,7 @@
                     <input type="text" id="phone" name="phone" value="{{auth()->user()->phone}}" class="form-control" placeholder="Your phone number">
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary pull-right">Register</button>
+                    <button type="submit" class="btn btn-primary pull-right">Edit profile</button>
                 </div>
             </form>
         </div>
