@@ -125,6 +125,11 @@ class UserController extends Controller
         return view('user.changePassword');
     }
 
+    public function getEditProfile()
+    {
+        return view('user.editProfile');
+    }
+
     public function postChangePassword(Request $request)
     {
         $this->validate($request, [
