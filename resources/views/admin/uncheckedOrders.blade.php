@@ -7,7 +7,7 @@
 @section('content')
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
-            <p>Orders panel - Unchecked orders</p>
+            <p>Orders panel - <em class="search-count">Unchecked orders</em></p>
             <hr>
             @include('partials.searchOrdersForm')
             <hr>
