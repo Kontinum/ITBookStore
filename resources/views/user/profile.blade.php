@@ -13,7 +13,7 @@
     </div>
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
-            <a style="text-decoration: none" href="">
+            <a style="text-decoration: none" href="{{route('getEditProfile')}}">
                 <button class="btn btn-primary">
                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>    Edit profile
                 </button>
