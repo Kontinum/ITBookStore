@@ -228,6 +228,11 @@ Route::group(['prefix' => 'user'],function(){
             'as'   => 'getEditProfile'
         ]);
 
+        Route::post('/edit-profile',[
+            'uses' => 'UserController@postEditProfile',
+            'as'   => 'postEditProfile'
+        ]);
+
         Route::get('/logout',[
             'uses' => 'UserController@logout',
             'as'   => 'logout'
