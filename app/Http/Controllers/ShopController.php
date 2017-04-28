@@ -117,6 +117,16 @@ class ShopController extends Controller
         return back()->with('success','Order has been successfully checked');
     }
 
+    public function deliverOrder($orderId)
+    {
+        $order = \App\Order::find($orderId);
+
+        $order->delivered = 1;
+        $order->save();
+
+        return back()->with('success','Order has been successfully marked as delivered');
+    }
+
     public function searchOrders(Request $request)
     {
         $this->validate($request,[
