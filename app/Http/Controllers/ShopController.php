@@ -85,6 +85,11 @@ class ShopController extends Controller
         return view('shop.getOrders',['orders' => $orders]);
     }
 
+    public function orders()
+    {
+        return view('admin.orders');
+    }
+
     public function addToCart($bookId)
     {
         $book = Book::find($bookId);
