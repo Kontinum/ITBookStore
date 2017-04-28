@@ -130,6 +130,26 @@ class UserController extends Controller
         return view('user.editProfile');
     }
 
+    public function postEditProfile(Request $request)
+    {
+        $this->validate($request,[
+            'username' => 'required|min:5|max:20',
+            'name'     => 'required|min:5|max:50',
+            'email'    => 'email|unique:users,email,'.auth()->user()->id,
+        ]);
+
+        $user = User::find(auth()->user()->id);
+        $user->username = $request->input('username');
+        $user->name     = $request->input('name');
+        $user->email    = $request->input('email');
+        $user->address  = $request->input('address');
+        $user->phone    = $request->input('phone');
+
+        $user->save();
+
+        return back()->with('success','Your profile has been successfully updated');
+    }
+
     public function postChangePassword(Request $request)
     {
         $this->validate($request, [
