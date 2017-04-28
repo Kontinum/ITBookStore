@@ -120,6 +120,32 @@ class UserController extends Controller
         return view('user.profile');
     }
 
+    public function getChangePassword()
+    {
+        return view('user.changePassword');
+    }
+
+    public function postChangePassword(Request $request)
+    {
+        $this->validate($request, [
+            'old_password' => 'required|min:6',
+            'new_password' => 'required|min:6',
+            'new_password_again' => 'required|same:new_password'
+        ]);
+
+        if(!password_verify($request->input('old_password'),auth()->user()->getAuthPassword())){
+            return back()->with('error','Old password is incorrect');
+        }
+
+        $user = User::find(auth()->user()->id);
+        $user->password = bcrypt($request->input('new_password'));
+        $user->save();
+
+        auth()->logout();
+
+        return redirect()->route('getSignIn')->with('success','Password has been successfully changed.Please login again with a new password.');
+    }
+
     public function logout()
     {
         Auth::logout();
