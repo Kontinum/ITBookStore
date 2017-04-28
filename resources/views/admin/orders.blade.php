@@ -12,7 +12,7 @@
             @include('partials.searchOrdersForm')
             <hr>
             <div class="text-center">
-                <a style="text-decoration: none" href="">
+                <a style="text-decoration: none" href="{{route('uncheckedOrders')}}">
                     <button class="btn btn-primary">Unchecked orders</button>
                 </a>
                 <a style="text-decoration: none" href="">
