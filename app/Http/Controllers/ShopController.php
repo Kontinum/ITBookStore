@@ -117,6 +117,27 @@ class ShopController extends Controller
         return back()->with('success','Order has been successfully checked');
     }
 
+    public function searchOrders(Request $request)
+    {
+        $this->validate($request,[
+            'order-id' => 'required'
+        ]);
+
+        $payment_id = $request->input('order-id');
+
+        $order = \App\Order::where('payment_id',$payment_id)->get();
+
+        if($order->isEmpty()){
+            return back()->with('error','There is no order with that payment ID');
+        }
+        $order->transform(function($order, $key){
+            $order->cart = unserialize($order->cart);
+            return $order;
+        });
+
+        return view('admin.orderResult',['order' => $order, 'payment_id' => $payment_id]);
+    }
+
     public function addToCart($bookId)
     {
         $book = Book::find($bookId);
