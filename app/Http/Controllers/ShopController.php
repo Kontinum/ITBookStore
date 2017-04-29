@@ -152,6 +152,14 @@ class ShopController extends Controller
         return view('admin.orderResult',['order' => $order, 'payment_id' => $payment_id]);
     }
 
+    public function deleteOrder($orderId)
+    {
+        $order = \App\Order::find($orderId);
+        $order->delete();
+
+        return back()->with('success','Order has been successfully deleted');
+    }
+
     public function addToCart($bookId)
     {
         $book = Book::find($bookId);
