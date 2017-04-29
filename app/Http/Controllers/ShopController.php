@@ -157,7 +157,7 @@ class ShopController extends Controller
         $order = \App\Order::find($orderId);
         $order->delete();
 
-        return back()->with('success','Order has been successfully deleted');
+        return redirect()->route('orders')->with('success','Order has been successfully deleted');
     }
 
     public function addToCart($bookId)
