@@ -30,18 +30,28 @@
                                 <em class="search-count">ORDER DELIVERED!</em>
                             @endif
                             @if(!$order->checked)
-                                <a href="{{route('checkOrder',['orderId' => $order->id])}}">
+                                <a style="text-decoration: none" href="{{route('checkOrder',['orderId' => $order->id])}}">
                                     <button class="btn btn-success">
                                         <i class="fa fa-check" aria-hidden="true"></i> Check
                                     </button>
                                 </a>
+                                    <a href="{{route('deleteOrder',['orderId' => $order->id])}}" title="Delete order">
+                                        <button class="btn btn-danger">
+                                            <i class="fa fa-times"></i>
+                                        </button>
+                                    </a>
                             @endif
                             @if($order->checked && !$order->delivered)
-                                <a href="{{route('deliverOrder', ['orderId' => $order->id])}}">
+                                <a style="text-decoration: none" href="{{route('deliverOrder', ['orderId' => $order->id])}}">
                                     <button class="btn btn-danger">
                                         <i class="fa fa-check" aria-hidden="true"></i> Mark as delivered
                                     </button>
                                 </a>
+                                    <a href="{{route('deleteOrder',['orderId' => $order->id])}}" title="Delete order">
+                                        <button class="btn btn-danger">
+                                            <i class="fa fa-times"></i>
+                                        </button>
+                                    </a>
                             @endif
                         </span>
                     </div>
