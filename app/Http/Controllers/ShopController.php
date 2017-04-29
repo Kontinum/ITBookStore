@@ -6,8 +6,10 @@ use App\Author;
 use App\Book;
 use App\Cart;
 use App\Category;
+use App\Mail\OrderPurchased;
 use App\Subcategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Stripe\Charge;
 use Stripe\Order;
@@ -221,6 +223,7 @@ class ShopController extends Controller
             $order->payment_id = $charge->id;
 
             auth()->user()->orders()->save($order);
+            Mail::to(auth()->user()->email)->send(new OrderPurchased($order));
         }catch(\Exception $e){
             return redirect()->route('checkout')->with('error',$e->getMessage());
         }
