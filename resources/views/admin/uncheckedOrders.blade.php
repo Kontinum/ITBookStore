@@ -25,11 +25,18 @@
                             Address: <span class="search-count">{{$order->address}}</span> |
                             Date: <span class="search-count">{{$order->created_at}}</span>
                         </em>
-                        <a href="{{route('checkOrder',['orderId' => $order->id])}}">
-                            <button class="btn btn-success pull-right">
+                        <span class="pull-right">
+                        <a style="text-decoration: none" href="{{route('checkOrder',['orderId' => $order->id])}}">
+                            <button class="btn btn-success">
                                 <i class="fa fa-check" aria-hidden="true"></i> Check
                             </button>
                         </a>
+                            <a href="{{route('deleteOrder',['orderId' => $order->id])}}" title="Delete order">
+                                <button class="btn btn-danger">
+                                    <i class="fa fa-times"></i>
+                                </button>
+                            </a>
+                        </span>
                     </div>
                     <div class="panel-body">
                         @foreach($order->cart->items as $item)
