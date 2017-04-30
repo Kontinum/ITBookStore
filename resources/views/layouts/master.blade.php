@@ -15,6 +15,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <!-- Custom styles -->
     <link rel="stylesheet" href="{{url()->to('css/styles.css')}}">
+    <!-- Responsive styles -->
+    <link rel="stylesheet" href="{{url()->to('css/responsive.css')}}">
     @yield('styles')
 </head>
 <body>
