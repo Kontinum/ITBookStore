@@ -220,6 +220,7 @@ class ShopController extends Controller
             $order = new \App\Order();
             $order->cart = serialize($cart);
             $order->address = $request->input('address');
+            $order->phone = $request->input('phone');
             $order->name = $request->input('name');
             $order->payment_id = $charge->id;
 
