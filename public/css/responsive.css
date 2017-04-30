@@ -1,0 +1,19 @@
+@media screen and (max-width: 767px){
+    .dropdown-submenu{
+        display: block;
+        position: relative;
+        width: auto;
+        left: 0%;
+        margin-top: 0px;
+        margin-left: 35px;
+    }
+
+    .dropdown-submenu li a{
+        width:100%;
+        padding-left: 5px;
+    }
+
+    .dropdown-menu-category:hover .dropdown-submenu{
+        display: block;
+    }
+}
