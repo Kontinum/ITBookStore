@@ -99,9 +99,9 @@ class ShopController extends Controller
         $orders = \App\Order::where('checked',0)
             ->orderBy('created_at','ASC')->get();
 
-        if($orders->isEmpty()){
+        /*if($orders->isEmpty()){
             return back()->with('error','There are no unchecked orders');
-        }
+        }*/
 
         $orders->transform(function($order, $key){
             $order->cart = unserialize($order->cart);
@@ -141,9 +141,6 @@ class ShopController extends Controller
 
         $order = \App\Order::where('payment_id',$payment_id)->get();
 
-        if($order->isEmpty()){
-            return back()->with('error','There is no order with that payment ID');
-        }
         $order->transform(function($order, $key){
             $order->cart = unserialize($order->cart);
             return $order;
@@ -157,7 +154,7 @@ class ShopController extends Controller
         $order = \App\Order::find($orderId);
         $order->delete();
 
-        return redirect()->route('orders')->with('success','Order has been successfully deleted');
+        return back()->with('success','Order has been successfully deleted');
     }
 
     public function addToCart($bookId)
