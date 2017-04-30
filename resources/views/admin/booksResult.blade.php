@@ -16,7 +16,7 @@
         @if(!count($books))
             <div class="row">
                 <div class="alert alert-danger col-lg-8 col-lg-offset-2">
-                    There aro no books with that name.
+                    There are no books with that name.
                 </div>
             </div>
         @else
