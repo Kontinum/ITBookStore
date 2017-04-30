@@ -11,6 +11,17 @@
             <hr>
             @include('partials.searchAuthorsForm')
         </div>
-        @include('partials.authorsList')
+    </div>
+    <div class="row">
+        @if(!count($authors))
+            <div class="row">
+                <div class="alert alert-danger col-lg-8 col-lg-offset-2">
+                    There aro no authors with that name.
+                </div>
+            </div>
+        @else
+            @include('partials.authorsList')
+        @endif
+
     </div>
 @endsection

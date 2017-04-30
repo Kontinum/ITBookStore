@@ -37,10 +37,6 @@ class AuthorController extends Controller
         $authorName = $request->input('author-name');
         $authors = Author::where('name','LIKE','%'.$authorName.'%')->get();
 
-        if($authors->isEmpty()){
-            return back()->with('error','There is no author with that name');
-        }
-
         return view('admin.authorsResult',['authors' => $authors, 'authorName' => $authorName]);
     }
 
@@ -69,6 +65,6 @@ class AuthorController extends Controller
         $name = $author->name;
         $author->delete();
 
-        return redirect()->route('authors')->with('success','Author '.$name.' has been successfully deleted');
+        return back()->with('success','Author '.$name.' has been successfully deleted');
     }
 }
