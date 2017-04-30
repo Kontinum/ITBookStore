@@ -113,10 +113,6 @@ class BookController extends Controller
         $bookName = $request->input('book-name');
         $books = Book::where('name','LIKE','%'.$bookName.'%')->get();
 
-        if($books->isEmpty()){
-            return back()->with('error','There is no author with that name');
-        }
-
         return view('admin.booksResult',['books' => $books, 'bookName' => $bookName]);
     }
 
@@ -135,6 +131,6 @@ class BookController extends Controller
         $bookName = $book->name;
         $book->delete();
 
-        return redirect()->route('books')->with('success','Book '.$bookName.' has been successfully deleted');
+        return back()->with('success','Book '.$bookName.' has been successfully deleted');
     }
 }
