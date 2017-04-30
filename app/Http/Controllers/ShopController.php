@@ -99,10 +99,6 @@ class ShopController extends Controller
         $orders = \App\Order::where('checked',0)
             ->orderBy('created_at','ASC')->get();
 
-        /*if($orders->isEmpty()){
-            return back()->with('error','There are no unchecked orders');
-        }*/
-
         $orders->transform(function($order, $key){
             $order->cart = unserialize($order->cart);
             return $order;
