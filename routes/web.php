@@ -79,7 +79,7 @@ Route::get('/your-orders',[
     'as'   => 'getOrders'
 ]);
 
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
+Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin']],function(){
     Route::get('/authors',[
         'uses' => 'AuthorController@authors',
         'as'   => 'authors'
