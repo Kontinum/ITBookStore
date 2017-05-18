@@ -1,1 +1,1 @@
-# Repository for IT book store application using Laravel 5.4
+# IT book store
